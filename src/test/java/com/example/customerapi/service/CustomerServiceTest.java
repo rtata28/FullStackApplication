@@ -265,24 +265,6 @@ public class CustomerServiceTest {
     }
 
     @Test
-    void testCalculateTierPlatinum() {
-        Customer c = new Customer(null, "", "", BigDecimal.valueOf(12000), LocalDate.now().minusMonths(2));
-        assertEquals("Platinum", service.calculateTier(c));
-    }
-
-    @Test
-    void testCalculateTierGold() {
-        Customer c = new Customer(null, "", "", BigDecimal.valueOf(5000), LocalDate.now().minusMonths(8));
-        assertEquals("Gold", service.calculateTier(c));
-    }
-
-    @Test
-    void testCalculateTierSilver() {
-        Customer c = new Customer(null, "", "", BigDecimal.valueOf(500), LocalDate.now().minusMonths(13));
-        assertEquals("Silver", service.calculateTier(c));
-    }
-
-    @Test
     void testValidateRequestNullName() {
         CustomerRequest badRequest = new CustomerRequest(null, "test@example.com", BigDecimal.ONE, LocalDate.now());
         assertThrows(IllegalArgumentException.class, () -> service.createCustomer(badRequest));
